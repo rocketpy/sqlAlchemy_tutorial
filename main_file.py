@@ -1,3 +1,4 @@
+import os
 import sqlalchemy
 from sqlalchemy import MetaData, Table, Column, String, Integer
 
@@ -19,6 +20,21 @@ user_table = Table('user', metadata,
                    Column('username', String(50)),
                    Column('fullname', String(50))
                    )
+
+# or 
+if os.path.exists("some.db"):
+    os.remove("some.db")
+new_table = create_engine("sqlite:///some.db")
+new_table.execute("""
+    create table employee (
+        emp_id integer primary key,
+        emp_name varchar
+    )
+""")
+
+# add new row
+new_table.execute("""insert into employee(emp_name) values ('jack')""")
+
 
 # execute
 result = engine.execute("select emp_id, emp_name from " 
