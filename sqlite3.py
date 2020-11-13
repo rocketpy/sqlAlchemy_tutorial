@@ -28,9 +28,15 @@ conn.commit()  # commit
 
 # fetch (get) data from table
 cur.execute("SELECT * FROM customers")
-cur.fetchone()
+cur.fetchone()  # return first row from table
+cur.fetchone()[0]  # return first cell from this row 
+
 cur.fetchmany(5)
+
 cur.fetchall()
-# print(cur.fetchall())
+# print(cur.fetchall())  # will return a list with data
+
+items = cur.fetchall()
+print(items[0])  # return first row
 
 conn.close()  # close connection
