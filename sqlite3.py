@@ -56,3 +56,8 @@ cur.execute("SELECT * FROM customers WHERE name LIKE 'J%' ")
 cur.execute("SELECT * FROM customers WHERE email LIKE '%gmail.com' ")
     
 conn.close()  # close connection
+
+# Updating a data 
+cur.execute("""UPDATE customers SET name = 'John' WHERE surname = 'Grey' """)
+cur.commit()
+conn.close()
