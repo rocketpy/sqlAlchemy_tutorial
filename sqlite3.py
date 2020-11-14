@@ -45,6 +45,14 @@ items = cur.fetchall()
 
 for item in items:
     print(item)  # result will contain ID every row
-
+   
+# using WHERE
+cur.execute("SELECT * FROM customers WHERE age >= 35")
+#  or
+cur.execute("SELECT * FROM customers WHERE name = 'Jack' ")
+#  or
+cur.execute("SELECT * FROM customers WHERE name LIKE 'J%' ")
+#  or
+cur.execute("SELECT * FROM customers WHERE email LIKE '%gmail.com' ")
     
 conn.close()  # close connection
