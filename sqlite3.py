@@ -39,4 +39,12 @@ cur.fetchall()
 items = cur.fetchall()
 print(items[0])  # return first row
 
+#  get data by ID
+cur.execute("SELECT rowid, * FROM customers")
+items = cur.fetchall()
+
+for item in items:
+    print(item)  # result will contain ID every row
+
+    
 conn.close()  # close connection
