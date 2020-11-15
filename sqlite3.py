@@ -59,5 +59,13 @@ conn.close()  # close connection
 
 # Updating a data 
 cur.execute("""UPDATE customers SET name = 'John' WHERE surname = 'Grey' """)
+
+# Updating a data for first row
+cur.execute("""UPDATE customers SET name = 'John' WHERE rowid = 1 """)
+
 cur.commit()
 conn.close()
+
+# Delete some row
+cur.execute("DELETE FROM customers WHERE rowid = 5 ")
+
