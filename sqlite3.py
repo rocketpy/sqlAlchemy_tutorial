@@ -69,3 +69,7 @@ conn.close()
 # Delete some row
 cur.execute("DELETE FROM customers WHERE rowid = 5 ")
 
+#  ORDER BY:  ASC and DESC
+cur.execute("SELECT * FROM customers ORDER BY rowid DESC")
+#  or
+cur.execute("SELECT * FROM customers ORDER BY name")  # alphabet
