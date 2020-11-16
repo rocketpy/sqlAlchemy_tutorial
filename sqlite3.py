@@ -73,3 +73,7 @@ cur.execute("DELETE FROM customers WHERE rowid = 5 ")
 cur.execute("SELECT * FROM customers ORDER BY rowid DESC")
 #  or
 cur.execute("SELECT * FROM customers ORDER BY name")  # alphabet
+
+
+#  AND / OR
+cur.execute("SELECT * FROM customers WHERE age == 25 AND name == 'J%' ")
