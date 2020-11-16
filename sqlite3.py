@@ -80,6 +80,12 @@ cur.execute("SELECT rowid, * FROM customers WHERE age = 25 AND name LIKE 'J%' ")
 cur.execute("SELECT rowid, * FROM customers WHERE age = 25 OR age = 35 ")
 
 #  Limits
-cur.execute("SELECT rowid, * FROM customers LIMIT 10"  # return first 10 rows
+cur.execute("SELECT rowid, * FROM customers LIMIT 10")  # return first 10 rows
 
-cur.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC LIMIT 10"  # return 10 last rows            
+cur.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC LIMIT 10")  # return 10 last rows            
+
+#  Delete (DROP) a table
+cur.execute(DROP TABLE customers)
+cur.commit()
+conn.close()
+            
