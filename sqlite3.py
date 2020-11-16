@@ -70,10 +70,16 @@ conn.close()
 cur.execute("DELETE FROM customers WHERE rowid = 5 ")
 
 #  ORDER BY:  ASC and DESC
-cur.execute("SELECT * FROM customers ORDER BY rowid DESC")
+cur.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC")
 #  or
-cur.execute("SELECT * FROM customers ORDER BY name")  # alphabet
-
+cur.execute("SELECT rowid, * FROM customers ORDER BY name")  # alphabet
 
 #  AND / OR
-cur.execute("SELECT * FROM customers WHERE age == 25 AND name == 'J%' ")
+cur.execute("SELECT rowid, * FROM customers WHERE age = 25 AND name LIKE 'J%' ")
+
+cur.execute("SELECT rowid, * FROM customers WHERE age = 25 OR age = 35 ")
+
+#  Limits
+cur.execute("SELECT rowid, * FROM customers LIMIT 10"  # return first 10 rows
+
+cur.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC LIMIT 10"  # return 10 last rows            
