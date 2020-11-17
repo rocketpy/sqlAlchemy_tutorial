@@ -90,11 +90,20 @@ cur.commit()
 conn.close()
 
 
-#  simple example of create a function
+#  simple example of create a function for get all records , using like a module
+#  save in file data.py , in other file, write import data and call get_all_records()
+
+# import sqlite3
+
 def get_all_records():
-    import sqlite3
     conn = sqlite3.connect('customers.db')
     cur = conn.cursor()  
     cur.execute("SELECT rowid, * FROM customers")
+    
     items = cur.fetchall()
     
+    for item in items:
+        print(item)
+        
+    cur.commit()
+    conn.close()
