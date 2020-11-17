@@ -88,4 +88,13 @@ cur.execute("SELECT rowid, * FROM customers ORDER BY rowid DESC LIMIT 10")  # re
 cur.execute(DROP TABLE customers)
 cur.commit()
 conn.close()
-            
+
+
+#  simple example of create a function
+def get_all_records():
+    import sqlite3
+    conn = sqlite3.connect('customers.db')
+    cur = conn.cursor()  
+    cur.execute("SELECT rowid, * FROM customers")
+    items = cur.fetchall()
+    
