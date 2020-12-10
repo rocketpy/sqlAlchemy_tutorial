@@ -1,7 +1,19 @@
+# PyPi: https://pypi.org/project/PyMySQL/
+# Docs: https://pymysql.readthedocs.io/en/latest/user/installation.html
 #  pip install PyMySQL
 
 import pymysql
 import pymysql.cursors
+
+
+# create a table
+CREATE TABLE `users` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `email` varchar(255) COLLATE utf8_bin NOT NULL,
+    `password` varchar(255) COLLATE utf8_bin NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+AUTO_INCREMENT=1 ;
 
 
 # fetchAll
