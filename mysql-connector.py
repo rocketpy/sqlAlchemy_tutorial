@@ -77,3 +77,21 @@ db_cursor.execute("SHOW TABLES")
 for table in db_cursor:
 	print(table)	
 
+	
+# using ALTER table
+#  ALTER TABLE student MODIFY id INT PRIMARY KEY
+
+import mysql.connector
+	
+	
+db_connection = mysql.connector.connect(host="localhost",
+                                        user="root",
+                                        passwd="root",
+                                        database="my_first_db"
+				       )
+
+db_cursor = db_connection.cursor()
+
+# modify existing column id
+db_cursor.execute("ALTER TABLE student MODIFY id INT PRIMARY KEY")
+
