@@ -95,3 +95,31 @@ db_cursor = db_connection.cursor()
 # modify existing column id
 db_cursor.execute("ALTER TABLE student MODIFY id INT PRIMARY KEY")
 
+
+#  Insert operation
+#  INSERT INTO student (id, name) VALUES (01, "John")
+#  INSERT INTO employee (id, name, salary) VALUES(01, "John", 10000)
+
+import mysql.connector
+	
+	
+db_connection = mysql.connector.connect(host="localhost",
+                                        user="root",
+                                        passwd="root",
+                                        database="my_first_db"
+				       )
+
+db_cursor = db_connection.cursor()
+
+student_sql_query = "INSERT INTO student(id,name) VALUES(01, 'John')"
+employee_sql_query = " INSERT INTO employee (id, name, salary) VALUES (01, 'John', 10000)"
+
+# execute cursor and pass query
+db_cursor.execute(student_sql_query)
+
+# execute cursor and pass query
+db_cursor.execute(employee_sql_query)
+db_connection.commit()
+
+print(db_cursor.rowcount, "Record Inserted")
+
